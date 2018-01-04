@@ -1,0 +1,53 @@
+---
+---
+<style>
+  .site__header {
+    display: grid;
+    grid-template-areas:
+      "title . nav cta";
+  }
+
+  .site__header > h1 {
+    grid-area: title;
+  }
+
+  .site__header > ul {
+    grid-area: nav;
+  }
+
+  .site__header > a {
+    display: none;
+    grid-area: cta;
+  }
+
+  .site__header > ul {
+    justify-self: end;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site__header > ul > li {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    margin: 0 16px;
+    transform: translateY(-50%);
+  }
+
+  .site__header > ul > li:first-of-type {
+    margin-left: 0;
+  }
+
+  .site__header > ul > li:last-of-type {
+    margin-right: 0;
+  }
+
+</style>
+<h1>Title</h1>
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="#contact">Contact Me</a></li>
+</ul>
+<a href="#">
+  <button class="button">Start Today</button>
+</a>

@@ -1,0 +1,5 @@
+---
+---
+<noscript>
+  <h2>javascript is required to view this content</h2>
+</noscript>
