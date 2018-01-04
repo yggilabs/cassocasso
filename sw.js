@@ -1,8 +1,9 @@
 var CACHE_NAME = 'cache-v2';
 var urlsToCache = [
-  '/index.html',
-  './includes/home.html',
-  './includes/contact.html'
+  '/cassocasso/',
+  '/cassocasso/index.html',
+  '/cassocasso/includes/home.html',
+  '/cassocasso/includes/contact.html'
 ];
 
 self.addEventListener('install', function(event) {
