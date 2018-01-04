@@ -1,3 +1,6 @@
+---
+title
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="some description">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Casso &amp; Casso Painting</title>
-  
+  <title>{{ page.title }}</title>
+
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -30,10 +33,10 @@
 
   <!-- Color the status bar on mobile devices -->
   <meta name="theme-color" content="#2F3BA2">
-    
+
   <link rel="import" href="includes/home.html">
   <link rel="import" href="includes/contact.html">
-  
+
   <link href="https://fonts.googleapis.com/css?family=Lato|Saira+Semi+Condensed" rel="stylesheet">
   <style>
     :root {
@@ -47,27 +50,27 @@
       font-family: 'Saira Semi Condensed', sans-serif;
       color: #212121;
     }
-    
+
     * {
       box-sizing: border-box;
     }
-    
+
     body, html {
       margin: 0;
       padding: 0;
     }
-        
+
     h1,h2,h3 {
       font-family: 'Lato', sans-serif;
     }
-    
+
 
     a {
       text-decoration: none;
       color: rgba(33,33,33,.83);
       font-weight: 700;
     }
-    
+
     a:hover {
       color: var(--colors__primary);
     }
@@ -77,16 +80,16 @@
       width: var(--content-width, 800px);
       max-width: 100vw;
     }
-    
+
     .site {
       display: grid;
       grid-template-rows: var(--site__header-height) minmax(calc(100vh - var(--site__footer-height) - var(--site__header-height)), auto) var(--site__footer-height);
-      grid-template-areas: 
-        "header" 
+      grid-template-areas:
+        "header"
         "router"
         "footer";
     }
-    
+
     .site__header {
       grid-area: header;
     }
@@ -94,9 +97,9 @@
     .site__footer {
       grid-area: footer;
     }
-    
+
     .site__router {
-      grid-area: router; 
+      grid-area: router;
     }
   </style>
 </head>
@@ -111,26 +114,26 @@
         grid-template-areas:
           "title . nav cta";
       }
-      
+
       .site__header > h1 {
         grid-area: title;
       }
-      
+
       .site__header > ul {
         grid-area: nav;
       }
-      
+
       .site__header > a {
         display: none;
         grid-area: cta;
       }
-      
+
       .site__header > ul {
         justify-self: end;
         margin: 0;
         padding: 0;
       }
-      
+
       .site__header > ul > li {
         display: inline-block;
         position: relative;
@@ -138,11 +141,11 @@
         margin: 0 16px;
         transform: translateY(-50%);
       }
-      
+
       .site__header > ul > li:first-of-type {
         margin-left: 0;
       }
-      
+
       .site__header > ul > li:last-of-type {
         margin-right: 0;
       }
@@ -168,7 +171,7 @@
     <p>footer</p>
     <!-- TEMPLATE FOOTER END -->
   </footer>
-  
+
   <!--
   <script src="js/StatefulNode.js"></script>
   <script src="js/StatefulNodeGroup.js"></script>
@@ -192,31 +195,31 @@
   <script>
     // set target node to cloned template content from link
     const load = function(link, target) {
-      
+
       // get template from link
       const template = link.import.querySelector('template');
-      
+
       // clone template
       const clone = document.importNode(template.content, true);
 
       // clear target
       target.innerHTML = "";
-      
+
       // set target node to cloned template node
       target.appendChild(clone);
     };
-    
+
     // get router element
     const router = document.querySelector('.site__router')
-    
+
     // create shadow node for router element
     const routerShadow = router.attachShadow({mode: 'open'});
-    
+
     // partial application of load(link, target) where target = routerShadow
     const loadRouter = function(link) {
       load(link, routerShadow);
     };
-    
+
     // get imported document fragment for home
     const importHome = document.querySelector('link[rel="import"][href$="home.html"]');
     // get imported document fragment for contact
@@ -227,23 +230,23 @@
       switch(location.hash) {
         // if location hash is contact
         case "#contact":
-          loadRouter(importContact);  
+          loadRouter(importContact);
           break;
         // otherwise
         default:
-          loadRouter(importHome);  
+          loadRouter(importHome);
       }
     };
-    
+
     // register event listener update router when location hash changes
     window.addEventListener("hashchange", loadHash, false);
-    
+
     // initialize router to current location hash
     loadHash();
-    
+
   </script>
-  
-  
+
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
