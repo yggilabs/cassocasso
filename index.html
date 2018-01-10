@@ -83,8 +83,9 @@ title: new title
     }
 
     .site {
+      min-height: 100vh;
       display: grid;
-      grid-template-rows: var(--site__header-height) minmax(calc(100vh - var(--site__footer-height) - var(--site__header-height)), auto) var(--site__footer-height);
+      grid-template-rows: fit-content(100%) 1fr fit-content(100%);
       grid-template-areas:
         "header"
         "router"
