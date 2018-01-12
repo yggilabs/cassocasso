@@ -187,9 +187,12 @@ title: new title
       // check each import node
       imports.forEach(function(n) {
         // if import node matches resource name
-        if(n.getAttribute('href') === 'includes/' + res)
+        console.log(n)
+        if(n.getAttribute('href') === 'includes/' + res) {
           // load it
+          console.log(n)
           loadRouter(n);
+        }
       });
     };
 
