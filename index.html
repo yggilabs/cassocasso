@@ -181,12 +181,13 @@ title: new title
       const imports = document.querySelectorAll('link[rel="import"]');
 
       // get resource name
-      const res = window.location.href.split('/').pop().split('#')[0].split('?')[0];
+      //const res = window.location.href.split('/').pop().split('#')[0].split('?')[0];
+      const res = 'home.html';
 
       // check each import node
       imports.forEach(function(n) {
         // if import node matches resource name
-        if(n.getAttribute('href') === res)
+        if(n.getAttribute('href') === 'includes/' + res)
           // load it
           loadRouter(n);
       });
