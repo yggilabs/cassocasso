@@ -186,7 +186,7 @@ title: new title
       // check each import node
       imports.forEach(function(n) {
         // if import node matches resource name
-        if(n.attr('href') === res)
+        if(n.getAttribute('href') === res)
           // load it
           loadRouter(n);
       });
