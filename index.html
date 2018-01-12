@@ -144,7 +144,7 @@ title: new title
   <script>
 
     // navigate to url preserve history
-    const pushUrl = function(href) => {
+    const pushUrl = function(href) {
       history.pushState({}, '', href);
       window.dispatchEvent(new Event('popstate'));
     };
@@ -193,9 +193,7 @@ title: new title
     };
 
 
-
     window.addEventListener('popstate', loadImport, false);
-
 
     // initialize router to current location hash
     loadImport();
