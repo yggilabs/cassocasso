@@ -65,7 +65,6 @@ title: new title
       font-family: 'Lato', sans-serif;
     }
 
-
     a {
       text-decoration: none;
       color: rgba(33,33,33,.83);
@@ -114,6 +113,7 @@ title: new title
   </header>
   <main class="site__router">
     {% include noscript.html %}
+    {% include_relative includes/home.html %}
   </main>
   <footer class="site__footer container">
     <!-- TEMPLATE FOOTER BEGIN -->
@@ -142,6 +142,13 @@ title: new title
     }
   </script>
   <script>
+
+    // navigate to url preserve history
+    const pushUrl = function(href) => {
+      history.pushState({}, '', href);
+      window.dispatchEvent(new Event('popstate'));
+    };
+
     // set target node to cloned template content from link
     const load = function(link, target) {
 
@@ -169,29 +176,29 @@ title: new title
       load(link, routerShadow);
     };
 
-    // get imported document fragment for home
-    const importHome = document.querySelector('link[rel="import"][href$="home.html"]');
-    // get imported document fragment for contact
-    const importContact = document.querySelector('link[rel="import"][href$="contact.html"]');
+    const loadImport = function() {
+      // get all html import nodes
+      const imports = document.querySelectorAll('link[rel="import"]');
 
-    const loadHash = function() {
-      // load document fragment into router
-      switch(location.hash) {
-        // if location hash is contact
-        case "#contact":
-          loadRouter(importContact);
-          break;
-        // otherwise
-        default:
-          loadRouter(importHome);
-      }
+      // get resource name
+      const res = window.location.href.split('/').pop().split('#')[0].split('?')[0];
+
+      // check each import node
+      imports.forEach(function(n) {
+        // if import node matches resource name
+        if(n.attr('href') === res)
+          // load it
+          loadRouter(n);
+      });
     };
 
-    // register event listener update router when location hash changes
-    window.addEventListener("hashchange", loadHash, false);
+
+
+    window.addEventListener('popstate', loadImport, false);
+
 
     // initialize router to current location hash
-    loadHash();
+    loadImport();
 
   </script>
 
