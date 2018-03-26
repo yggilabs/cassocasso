@@ -53,17 +53,17 @@ title: new title
       gtag('config', 'UA-116382541-1');
     </script>
   </head>
-  <body class="site">
-    <header class="site__header container active">
+  <body class="site grid">
+    <header class="site__header grid__header">
       <!-- TEMPLATE HEADER BEGIN -->
       {% include header.html %}
       <!-- TEMPLATE HEADER END -->
     </header>
-    <main class="site__router">
+    <main class="site__router grid__content">
       {% include noscript.html %}
       {% include_relative includes/home.html %}
     </main>
-    <footer class="site__footer container">
+    <footer class="site__footer grid__footer">
       <!-- TEMPLATE FOOTER BEGIN -->
       {% include footer.html %}
       <!-- TEMPLATE FOOTER END -->

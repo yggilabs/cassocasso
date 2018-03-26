@@ -7,10 +7,20 @@
     --site__header-height: 48px;
     --site__footer-height: 48px;
     --content-width: 800px;
+    --color-light: #ffffff;
+    --color-dark: #212121;
+    --color-highlight: red;
+    --color-fate: var(--color-highlight);
+    --color-shroud: var(--color-dark);
     font-family: 'Saira Semi Condensed', sans-serif;
     font-size: 20px;
     color: #212121;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+
 
   body, html {
     margin: 0;
@@ -35,31 +45,60 @@
     color: var(--colors__primary);
   }
 
-  .container {
-    margin: 0 auto;
-    width: var(--content-width, 800px);
-    max-width: 100vw;
-  }
-
   .site {
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: fit-content(100%) 1fr fit-content(100%);
-    grid-template-areas:
-      "header"
-      "router"
-      "footer";
+
   }
 
   .site__header {
-    grid-area: header;
   }
 
   .site__footer {
-    grid-area: footer;
   }
 
   .site__router {
-    grid-area: router;
+  }
+
+  .grid  {
+    --grid-header-height: 72px;
+    --grid-footer-height: 64px;
+    --grid-content-width: 600px;
+    --grid-row-gap: 16px;
+    --grid-columm-gap: 16px;
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: [full-start] 1fr [content-start] minmax(auto, var(--grid-content-width)) [content-end] 1fr [full-end];
+    grid-template-rows: [full-start header-start] minmax(var(--grid-header-height),max-content) [header-end content-start] 1fr [footer-start] minmax(var(--grid-footer-height),max-content) [footer-end content-end full-end];
+    grid-row-gap: var(--grid-row-gap);
+    grid-column-gap: var(--grid-columm-gap);
+  }
+
+  .grid > .grid__full {
+    grid-column: full;
+    grid-row: full;
+  }
+
+  .grid > .grid__header {
+    grid-column: content;
+    grid-row: header;
+  }
+
+  .grid > .grid__header-background {
+    grid-column: full;
+    grid-row: header;
+  }
+
+  .grid > .grid__content {
+    grid-column: content;
+    grid-row: content;
+  }
+
+  .grid > .grid__footer {
+    grid-column: content;
+    grid-row: footer;
+  }
+
+  .grid > .grid__footer-background {
+    grid-column: full;
+    grid-row: footer;
   }
 </style>
