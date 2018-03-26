@@ -34,9 +34,10 @@ title: new title
   <!-- Color the status bar on mobile devices -->
   <meta name="theme-color" content="#2F3BA2">
 
-  {% for include in site.includes %}
-    <link rel="import" href="{{include.relative_path}}">
-  {% endfor %}
+  <link rel="import" href="includes/home.html">
+  <link rel="import" href="includes/contact.html">
+  <link rel="import" href="includes/play.html">
+  <link rel="import" href="includes/results.html">
 
   <link href="https://fonts.googleapis.com/css?family=Lato|Saira+Semi+Condensed" rel="stylesheet">
   <style>
@@ -185,14 +186,16 @@ title: new title
       const res = window.location.hash.replace('#', '');
 
       const map = {
-
-        "": "{{ include_default }}.html"
+        results: "includes/results.html",
+        play: "includes/play.html"
+        home: "includes/home.html"
+        "": "includes/home.html"
       }
 
       // check each import node
       imports.forEach(function(n) {
         // if import node matches resource name
-        if(n.getAttribute('href') === 'includes/' + map[res]) {
+        if(n.getAttribute('href') === map[res]) {
           // load it
           console.log("loading router from " + n.getAttribute('href'))
           loadRouter(n);
