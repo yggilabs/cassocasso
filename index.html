@@ -1,11 +1,5 @@
 ---
 title: new title
-include_default: home
-includes:
-- home
-- contact
-- play
-- result
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +34,8 @@ includes:
   <!-- Color the status bar on mobile devices -->
   <meta name="theme-color" content="#2F3BA2">
 
-  {% for include in page.includes %}
-    <link rel="import" href="includes/{{ include }}.html">
+  {% for include in site.includes %}
+    <link rel="import" href="{{include.relative_path}}">
   {% endfor %}
 
   <link href="https://fonts.googleapis.com/css?family=Lato|Saira+Semi+Condensed" rel="stylesheet">
@@ -191,9 +185,7 @@ includes:
       const res = window.location.hash.replace('#', '');
 
       const map = {
-        {% for include in page.includes %}
-          {{include}}: "{{ include }}.html",
-        {% endfor %}
+
         "": "{{ include_default }}.html"
       }
 
