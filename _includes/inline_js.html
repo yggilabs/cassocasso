@@ -1,0 +1,67 @@
+<script>
+
+  // navigate to url preserve history
+  const pushUrl = function(href) {
+    history.pushState({}, '', href);
+    window.dispatchEvent(new Event('popstate'));
+  };
+
+  // set target node to cloned template content from link
+  const load = function(link, target) {
+
+    // get template from link
+    const template = link.import.querySelector('template');
+
+    // clone template
+    const clone = document.importNode(template.content, true);
+
+    // clear target
+    target.innerHTML = "";
+
+    // set target node to cloned template node
+    target.appendChild(clone);
+  };
+
+  // get router element
+  const router = document.querySelector('.site__router')
+
+  // create shadow node for router element
+  const routerShadow = router.attachShadow({mode: 'open'});
+
+  // partial application of load(link, target) where target = routerShadow
+  const loadRouter = function(link) {
+    load(link, routerShadow);
+  };
+
+  const loadImport = function() {
+    // get all html import nodes
+    const imports = document.querySelectorAll('link[rel="import"]');
+
+    // get resource name
+    const res = window.location.hash.replace('#', '');
+
+    const map = {
+      results: "includes/results.html",
+      play: "includes/play.html",
+      home: "includes/home.html",
+      "": "includes/home.html"
+    }
+
+    // check each import node
+    imports.forEach(function(n) {
+      // if import node matches resource name
+      if(n.getAttribute('href') === map[res]) {
+        // load it
+        console.log("loading router from " + n.getAttribute('href'))
+        loadRouter(n);
+      }
+    });
+  };
+
+  // listen for state change on history
+  window.addEventListener('popstate', loadImport, false);
+
+  // initialize router to current location hash
+  loadImport();
+
+</script>
