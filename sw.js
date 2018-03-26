@@ -4,6 +4,8 @@ var urlsToCache = [
   '/cassocasso/index.html',
   '/cassocasso/includes/home.html',
   '/cassocasso/includes/contact.html'
+  '/cassocasso/includes/play.html'
+  '/cassocasso/includes/results.html'
 ];
 
 self.addEventListener('install', function(event) {
