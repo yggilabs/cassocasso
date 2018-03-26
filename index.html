@@ -115,7 +115,7 @@ title: new title
   </header>
   <main class="site__router">
     {% include noscript.html %}
-    {% include_relative includes/home.html | remove: '<template>' | remove: '</template>' %}
+    {% include_relative includes/home.html %}
   </main>
   <footer class="site__footer container">
     <!-- TEMPLATE FOOTER BEGIN -->
@@ -187,8 +187,8 @@ title: new title
 
       const map = {
         results: "includes/results.html",
-        play: "includes/play.html"
-        home: "includes/home.html"
+        play: "includes/play.html",
+        home: "includes/home.html",
         "": "includes/home.html"
       }
 
