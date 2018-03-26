@@ -192,8 +192,8 @@ includes:
 
       const map = {
         {% for include in page.includes %}
-        {{include}}: "{{ include }}.html",
-        {$ endfor %}
+          {{include}}: "{{ include }}.html",
+        {% endfor %}
         "": "{{ include_default }}.html"
       }
 
