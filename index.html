@@ -42,7 +42,7 @@ includes:
 
   {% for include in page.includes %}
     <link rel="import" href="includes/{{ include }}.html">
-  {$ endfor %}
+  {% endfor %}
 
   <link href="https://fonts.googleapis.com/css?family=Lato|Saira+Semi+Condensed" rel="stylesheet">
   <style>
