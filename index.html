@@ -181,13 +181,20 @@ title: new title
       const imports = document.querySelectorAll('link[rel="import"]');
 
       // get resource name
-      const res = window.location.href.split('/').pop().split('#')[1].split('?')[0];
+      const res = window.location.href.split('/').pop().split('#')[1].split('?')[0].toLowerCase();
+
+      const map = {
+        "": "home.html",
+        home: "home.html",
+        play: "play.html",
+        results: "results.html"
+      }
 
       console.log(res);
       // check each import node
       imports.forEach(function(n) {
         // if import node matches resource name
-        if(n.getAttribute('href') === 'includes/' + res) {
+        if(n.getAttribute('href') === 'includes/' + map[res]) {
           // load it
           loadRouter(n);
         }
