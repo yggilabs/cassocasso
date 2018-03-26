@@ -181,7 +181,7 @@ title: new title
       const imports = document.querySelectorAll('link[rel="import"]');
 
       // get resource name
-      const res = window.location.href.split('/').pop().split('#')[0].split('?')[0];
+      const res = window.location.href.split('/').pop().split('#')[1].split('?')[0];
 
       console.log(res);
       // check each import node
