@@ -188,7 +188,7 @@ includes:
       const imports = document.querySelectorAll('link[rel="import"]');
 
       // get resource name
-      const res = window.location.href.split('/').pop().split('#')[1].split('?')[0].toLowerCase();
+      const res = window.location.hash.replace('#', '');
 
       const map = {
         {% for include in page.includes %}
