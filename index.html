@@ -115,7 +115,7 @@ title: new title
   </header>
   <main class="site__router">
     {% include noscript.html %}
-    {% include_relative includes/home.html %}
+    {% include_relative includes/home.html | remove: '<template>' | remove: '</template>' %}
   </main>
   <footer class="site__footer container">
     <!-- TEMPLATE FOOTER BEGIN -->
@@ -192,7 +192,6 @@ title: new title
         results: "results.html"
       }
 
-      console.log(res);
       // check each import node
       imports.forEach(function(n) {
         // if import node matches resource name
