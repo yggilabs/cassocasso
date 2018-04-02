@@ -1,0 +1,132 @@
+<template id="template">
+  <style>
+    .overlay.active::before {
+      content: '';
+      background-color: #212121;
+      opacity: .72;
+      grid-column: full;
+      grid-row: full;
+    }
+
+    .overlay {
+      display: contents;
+      position: relative;
+    }
+
+    .overlay .overlay__step {
+      display: flex;
+      flex-direction: column;
+      grid-row: content;
+      grid-column: content;
+      color: #fff;
+      opacity: 0;
+      pointer-events: none;
+      transition: none;
+    }
+
+    .button {
+      background-color: #785390;
+      color: white;
+      text-decoration: none;
+      padding: 16px;
+      border-radius: 2px;
+    }
+
+    .button--back {
+      color: #785390;
+      background-color: transparent;
+    }
+
+    .overlay.active .overlay__step.active {
+      opacity: 1;
+      z-index: 1;
+      pointer-events: all;
+      transition: opacity 300ms;
+    }
+  </style>
+  <div class="overlay active" id="overlay">
+    <div class="overlay__step active" id="overlay-0">
+      <p>You have a secret agenda. Hide this from the others.</p>
+      <p>Hold <i class="material-icons">fingerprint</i> to view your <span class="card__type card__type--shadow">shadow</span>'s <span class="keyword">agenda</span></p>
+      <p>
+        <span class="button button--next">Got it</span>
+      </p>
+    </div>
+    <div class="overlay__step" id="overlay-1">
+      <p>Your <span class="keyword">agenda</span> tells you how to manipulate <span class="card__type card__type--fate">fate</span> to score</p>
+      <p>Hold <i class="material-icons">gamble</i> to view your current <span class="card__type card__type--fate">fate</span></p>
+      <p>
+        <span class="button button--back">Back</span>
+        <span class="button button--next">Got it</span>
+      </p>
+    </div>
+    <div class="overlay__step" id="overlay-2">
+      <p>This card tells you how to <span class="keyword">swap</span> your <span class="card__type card__type--fate">fate</span> with another player</p>
+      <p>Tap <i class="material-icons">less</i> when you swap with another player</p>
+      <p>
+        <span class="button button--back">Back</span>
+        <span class="button button--next">Let's Play!</span>
+      </p>
+    </div>
+  </div>
+  <script>
+    (function() {
+      const root = getRoot()
+      const overlay = root.querySelector("#overlay")
+      const overlayStep0 = overlay.querySelector("#overlay-0")
+      const overlayStep1 = overlay.querySelector("#overlay-1")
+      const overlayStep2 = overlay.querySelector("#overlay-2")
+      const overlaySteps = overlay.querySelectorAll(".overlay__step")
+
+      const hideOverlaySteps = () => {
+        overlaySteps.forEach(step => {
+          step.classList.remove('active')
+        })
+      }
+
+      const setStep = step => {
+        console.log(step);
+        hideOverlaySteps()
+        step.classList.add('active')
+      }
+
+      const hideOverlay = () => {
+        console.log("hide");
+        setStep(overlayStep0)
+        overlay.classList.remove('active')
+      }
+
+      overlayStep0.querySelector(".button--next").addEventListener("click", () => { setStep(overlayStep1) })
+      overlayStep1.querySelector(".button--back").addEventListener("click", () => { setStep(overlayStep0) })
+      overlayStep1.querySelector(".button--next").addEventListener("click", () => { setStep(overlayStep2) })
+      overlayStep2.querySelector(".button--back").addEventListener("click", () => { setStep(overlayStep1) })
+      overlayStep2.querySelector(".button--next").addEventListener("click", () => { hideOverlay() })
+    })()
+  </script>
+</template>
+<script>
+	  window.customElements.define('seven-overlay', class extends HTMLElement {
+      static get observedAttributes() {
+        return ['active'];
+      }
+
+      constructor() {
+        super(); // always call super() first in the ctor.
+        this._shadowRoot = this.attachShadow({
+          mode: 'open'
+        });
+        this._shadowRoot.appendChild(getTemplate().content.cloneNode(true));
+      }
+
+      connectedCallback() {
+        this.classList.add('is-connected')
+      }
+
+      disconnectedCallback() {
+        this.classList.remove('is-connected')
+      }
+
+      attributeChangedCallback(attrName, oldVal, newVal) {}
+
+    })
+</script>
