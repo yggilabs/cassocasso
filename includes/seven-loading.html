@@ -9,6 +9,7 @@
 
     :host(.active) {
       display: contents;
+      z-index: 100;
     }
 
     .background::before {
@@ -21,20 +22,28 @@
 
 
     @keyframes spin {
-      from {
+      0% {
           transform:rotate(0deg);
       }
-      to {
+      67% {
+          transform:rotate(360deg);
+      }
+      100% {
           transform:rotate(360deg);
       }
     }
 
-    .icon {
+    .content {
       grid-row: content;
       grid-column: content;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .icon {
       background-color: #0CB1C4;
       animation-name: spin;
-      animation-duration: 1000ms;
+      animation-duration: 2000ms;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
     }
@@ -44,8 +53,10 @@
     }
   </style>
   <div class="background"></div>
-  <div class="icon"></div>
-  <div class="message">loading</div>
+  <div class="content">
+    <div class="icon"></div>
+    <div class="message">loading</div>
+  </div>
 </template>
 <script>
 
