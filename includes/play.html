@@ -62,6 +62,11 @@
 			padding: 16px;
 		}
 
+		.button--back {
+			color: #785390;
+			background-color: transparent;
+		}
+
 		.overlay.active .overlay__step.active {
 			opacity: 1;
 		}
@@ -87,8 +92,8 @@
 		<div class="grid__content overlay__step" id="overlay-2">
 			<p>This card tells you how to <span class="keyword">swap</span> your <span class="card__type card__type--fate">fate</span> with another player</p>
 			<p>Tap <i class="material-icons">less</i> when you swap with another player</p>
-			<span class="button button--back" href="">Back</span>
-			<span class="button button--next" href="">Let's Play!</span>
+			<span class="button button--back">Back</span>
+			<span class="button button--next">Let's Play!</span>
 		</div>
 	</div>
 	<script>
@@ -98,11 +103,11 @@
 			const overlayStep0 = overlay.querySelector("#overlay-0")
 			const overlayStep1 = overlay.querySelector("#overlay-1")
 			const overlayStep2 = overlay.querySelector("#overlay-2")
-			const overlaySteps = overlay.querySelectorAll("overlay__step")
+			const overlaySteps = overlay.querySelectorAll(".overlay__step")
 
 			const hideOverlaySteps = () => {
-				overlaySteps.forEach(n => {
-					n.classList.remove('active')
+				overlaySteps.forEach(step => {
+					step.classList.remove('active')
 				})
 			}
 
