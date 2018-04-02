@@ -1,0 +1,85 @@
+<head>
+  <link rel="import" href="seven-base.html">
+</head>
+<template id="template">
+  <style>
+    :host {
+      display: none;
+    }
+
+    :host(.active) {
+      display: contents;
+    }
+
+    :host(::before) {
+      content: '';
+      grid-column: full;
+      grid-row: full;
+      background-color: #212121;
+      opacity: .87;
+    }
+
+
+    @keyframes spin {
+      from {
+          transform:rotate(0deg);
+      }
+      to {
+          transform:rotate(360deg);
+      }
+    }
+
+    :host(.active) .icon {
+      width: 100px;
+      height: 100px;
+      background-color: #0CB1C4;
+      animation-name: spin;
+      animation-duration: 5000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    :host(.active) .message {
+
+    }
+
+
+
+
+  </style>
+  <div class="icon"></div>
+  <div class="message">loading</div>
+</template>
+<script>
+
+  (function(ownerDocument) {
+	  window.customElements.define('seven-loading', class extends HTMLElement {
+      static get observedAttributes() {
+        return ['active'];
+      }
+
+      constructor() {
+        super(); // always call super() first in the ctor.
+        this._shadowRoot = this.attachShadow({
+          mode: 'open'
+        });
+        this._shadowRoot.appendChild(ownerDocument.querySelector("#template").content.cloneNode(true));
+      }
+
+      connectedCallback() {
+        this.classList.add('is-connected')
+        init(this._shadowRoot)
+      }
+
+      disconnectedCallback() {
+        this.classList.remove('is-connected')
+      }
+
+      attributeChangedCallback(attrName, oldVal, newVal) {}
+
+    })
+
+    const init = root => {
+    }
+  })(document.currentScript.ownerDocument)
+</script>
