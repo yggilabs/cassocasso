@@ -106,6 +106,8 @@
   </script>
 </template>
 <script>
+
+  (function(ownerDocument) {
 	  window.customElements.define('seven-overlay', class extends HTMLElement {
       static get observedAttributes() {
         return ['active'];
@@ -116,8 +118,7 @@
         this._shadowRoot = this.attachShadow({
           mode: 'open'
         });
-        console.log(document.currentScript.ownerDocument);
-        this._shadowRoot.appendChild(document.currentScript.ownerDocument.querySelector("#template").content.cloneNode(true));
+        this._shadowRoot.appendChild(ownerDocument.querySelector("#template").content.cloneNode(true));
       }
 
       connectedCallback() {
@@ -131,4 +132,5 @@
       attributeChangedCallback(attrName, oldVal, newVal) {}
 
     })
+  }(document.currentScript.ownerDocument))
 </script>
