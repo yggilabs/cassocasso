@@ -116,7 +116,7 @@
         this._shadowRoot = this.attachShadow({
           mode: 'open'
         });
-        this._shadowRoot.appendChild(getTemplate().content.cloneNode(true));
+        this._shadowRoot.appendChild(document.currentScript.ownerDocument.querySelector("#template").content.cloneNode(true));
       }
 
       connectedCallback() {
