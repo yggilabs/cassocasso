@@ -92,10 +92,11 @@
 		</div>
 	</div>
 	<script>
-		const overlay = document.querySelector("#overlay")
-		const overlayStep0 = document.querySelector("#overlay-0")
-		const overlayStep1 = document.querySelector("#overlay-1")
-		const overlayStep2 = document.querySelector("#overlay-2")
+		const doc = document.currentScript.ownerDocument
+		const overlay = doc.querySelector("#overlay")
+		const overlayStep0 = doc.querySelector("#overlay-0")
+		const overlayStep1 = doc.querySelector("#overlay-1")
+		const overlayStep2 = doc.querySelector("#overlay-2")
 		const overlaySteps = overlay.querySelectorAll("overlay__step")
 
 		const hideOverlaySteps = () => {
