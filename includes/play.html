@@ -92,35 +92,35 @@
 		</div>
 	</div>
 	<script>
-(
-		const root = document.querySelector(".site__router").shadowRoot
-		const overlay = root.querySelector("#overlay")
-		const overlayStep0 = overlay.querySelector("#overlay-0")
-		const overlayStep1 = overlay.querySelector("#overlay-1")
-		const overlayStep2 = overlay.querySelector("#overlay-2")
-		const overlaySteps = overlay.querySelectorAll("overlay__step")
+		(function() {
+			const root = document.querySelector(".site__router").shadowRoot
+			const overlay = root.querySelector("#overlay")
+			const overlayStep0 = overlay.querySelector("#overlay-0")
+			const overlayStep1 = overlay.querySelector("#overlay-1")
+			const overlayStep2 = overlay.querySelector("#overlay-2")
+			const overlaySteps = overlay.querySelectorAll("overlay__step")
 
-		const hideOverlaySteps = () => {
-			overlaySteps.forEach(n => {
-				n.classList.remove('active')
-			})
-		}
+			const hideOverlaySteps = () => {
+				overlaySteps.forEach(n => {
+					n.classList.remove('active')
+				})
+			}
 
-		const setStep = step => {
-			hideOverlaySteps()
-			step.classList.add('active')
-		}
+			const setStep = step => {
+				hideOverlaySteps()
+				step.classList.add('active')
+			}
 
-		const hideOverlay = () => {
-			setStep(overlayStep0)
-			overlay.classList.remove('active')
-		}
+			const hideOverlay = () => {
+				setStep(overlayStep0)
+				overlay.classList.remove('active')
+			}
 
-		overlayStep0.querySelector("button--next").addEventListener("click", setStep(overlayStep1))
-		overlayStep1.querySelector("button--back").addEventListener("click", setStep(overlayStep0))
-		overlayStep1.querySelector("button--next").addEventListener("click", setStep(overlayStep2))
-		overlayStep2.querySelector("button--back").addEventListener("click", setStep(overlayStep1))
-		overlayStep2.querySelector("button--next").addEventListener("click", hideOverlay())
-)
+			overlayStep0.querySelector("button--next").addEventListener("click", setStep(overlayStep1))
+			overlayStep1.querySelector("button--back").addEventListener("click", setStep(overlayStep0))
+			overlayStep1.querySelector("button--next").addEventListener("click", setStep(overlayStep2))
+			overlayStep2.querySelector("button--back").addEventListener("click", setStep(overlayStep1))
+			overlayStep2.querySelector("button--next").addEventListener("click", hideOverlay())
+		})()
 	</script>
 </template>
