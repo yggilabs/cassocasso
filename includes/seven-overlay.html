@@ -73,8 +73,8 @@
     </div>
   </div>
   <script>
-    (function() {
-      const root = getRoot()
+    (function(root) {
+      console.log(document.querySelector("#overlay"));
       const overlay = root.querySelector("#overlay")
       const overlayStep0 = overlay.querySelector("#overlay-0")
       const overlayStep1 = overlay.querySelector("#overlay-1")
@@ -104,7 +104,7 @@
       overlayStep1.querySelector(".button--next").addEventListener("click", () => { setStep(overlayStep2) })
       overlayStep2.querySelector(".button--back").addEventListener("click", () => { setStep(overlayStep1) })
       overlayStep2.querySelector(".button--next").addEventListener("click", () => { hideOverlay() })
-    })()
+    })(getRoot())
   </script>
 </template>
 <script>
