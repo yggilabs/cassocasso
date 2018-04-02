@@ -123,11 +123,11 @@
 				overlay.classList.remove('active')
 			}
 
-			overlayStep0.querySelector(".button--next").addEventListener("click", setStep(overlayStep1))
-			overlayStep1.querySelector(".button--back").addEventListener("click", setStep(overlayStep0))
-			overlayStep1.querySelector(".button--next").addEventListener("click", setStep(overlayStep2))
-			overlayStep2.querySelector(".button--back").addEventListener("click", setStep(overlayStep1))
-			overlayStep2.querySelector(".button--next").addEventListener("click", hideOverlay())
+			overlayStep0.querySelector(".button--next").addEventListener("click", () => { setStep(overlayStep1) })
+			overlayStep1.querySelector(".button--back").addEventListener("click", () => { setStep(overlayStep0) })
+			overlayStep1.querySelector(".button--next").addEventListener("click", () => { setStep(overlayStep2) })
+			overlayStep2.querySelector(".button--back").addEventListener("click", () => { setStep(overlayStep1) })
+			overlayStep2.querySelector(".button--next").addEventListener("click", () => { hideOverlay() })
 		})()
 	</script>
 </template>
