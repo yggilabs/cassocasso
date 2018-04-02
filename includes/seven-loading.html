@@ -20,7 +20,26 @@
       content: '';
       grid-column: full;
       grid-row: full;
+      background-size: cover;
       background-image: url("http://www.geocities.ws/grafxbin/Ttile_ANI_RAIN02.gif");
+    }
+
+    @keyframes lightning {
+      0% {
+        background-color: #212121;
+      }
+      67% {
+        background-color: #212121;
+      }
+      78% {
+        background-color: #fff;
+      }
+      89% {
+        background-color: #212121;
+      }
+      100% {
+        background-color: #fff;
+      }
     }
 
     .background::before {
@@ -29,6 +48,11 @@
       grid-row: full;
       background-color: #212121;
       opacity: .87;
+      animation-name: lightning;
+      animation-duration: 3000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      transition: opacity 100ms;
     }
 
 
@@ -53,6 +77,8 @@
 
     .icon {
       background-color: #0CB1C4;
+      width: 100px;
+      height: 100px;
       animation-name: spin;
       animation-duration: 2000ms;
       animation-iteration-count: infinite;
