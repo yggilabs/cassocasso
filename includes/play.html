@@ -50,8 +50,8 @@
 			position: relative;
 		}
 
-		.overlay.active .overlay__step {
-			opacity: 0;
+		.overlay .overlay__step {
+			display: none;
 			color: #fff
 		}
 
@@ -68,7 +68,7 @@
 		}
 
 		.overlay.active .overlay__step.active {
-			opacity: 1;
+			display: block;
 		}
 
 	</style>
@@ -112,11 +112,13 @@
 			}
 
 			const setStep = step => {
+				console.log(step);
 				hideOverlaySteps()
 				step.classList.add('active')
 			}
 
 			const hideOverlay = () => {
+				console.log("hide");
 				setStep(overlayStep0)
 				overlay.classList.remove('active')
 			}
