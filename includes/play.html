@@ -1,4 +1,4 @@
-<template>
+<template id="template">
 	<style>
 		h1 {
 			color: red;
@@ -92,7 +92,6 @@
 		</div>
 	</div>
 	<script>
-		const doc = document.currentScript.ownerDocument
 		const overlay = doc.querySelector("#overlay")
 		const overlayStep0 = doc.querySelector("#overlay-0")
 		const overlayStep1 = doc.querySelector("#overlay-1")
@@ -123,3 +122,19 @@
 
 	</script>
 </template>
+<script>
+	const getTemplate = function() {
+		const template = document.currentScript.ownerDocument.querySelector("#template")
+
+		if (template) {
+			return template;
+		}
+
+		console.log("no template node defined in " + document.currentScript.ownerDocument.documentURI)
+	}
+</script>
+<script>
+	getTemplate.addEventListener("load",event => {
+		console.log(event);
+	})
+</script>
