@@ -72,9 +72,38 @@
       </p>
     </div>
   </div>
-  <script>
-    (function(root) {
-      console.log(document.querySelector("#overlay"));
+</template>
+<script>
+
+  (function(ownerDocument) {
+	  window.customElements.define('seven-overlay', class extends HTMLElement {
+      static get observedAttributes() {
+        return ['active'];
+      }
+
+      constructor() {
+        super(); // always call super() first in the ctor.
+        this._shadowRoot = this.attachShadow({
+          mode: 'open'
+        });
+        console.log(ownerDocument)
+        this._shadowRoot.appendChild(ownerDocument.querySelector("#template").content.cloneNode(true));
+      }
+
+      connectedCallback() {
+        this.classList.add('is-connected')
+        init(this._shadowRoot)
+      }
+
+      disconnectedCallback() {
+        this.classList.remove('is-connected')
+      }
+
+      attributeChangedCallback(attrName, oldVal, newVal) {}
+
+    })
+
+    const init = (root) => {
       const overlay = root.querySelector("#overlay")
       const overlayStep0 = overlay.querySelector("#overlay-0")
       const overlayStep1 = overlay.querySelector("#overlay-1")
@@ -104,36 +133,6 @@
       overlayStep1.querySelector(".button--next").addEventListener("click", () => { setStep(overlayStep2) })
       overlayStep2.querySelector(".button--back").addEventListener("click", () => { setStep(overlayStep1) })
       overlayStep2.querySelector(".button--next").addEventListener("click", () => { hideOverlay() })
-    })(document.currentScript.ownerDocument)
-  </script>
-</template>
-<script>
-
-  (function(ownerDocument) {
-	  window.customElements.define('seven-overlay', class extends HTMLElement {
-      static get observedAttributes() {
-        return ['active'];
-      }
-
-      constructor() {
-        super(); // always call super() first in the ctor.
-        this._shadowRoot = this.attachShadow({
-          mode: 'open'
-        });
-        console.log(ownerDocument)
-        this._shadowRoot.appendChild(ownerDocument.querySelector("#template").content.cloneNode(true));
-      }
-
-      connectedCallback() {
-        this.classList.add('is-connected')
-      }
-
-      disconnectedCallback() {
-        this.classList.remove('is-connected')
-      }
-
-      attributeChangedCallback(attrName, oldVal, newVal) {}
-
-    })
+    }
   })(document.currentScript.ownerDocument)
 </script>
