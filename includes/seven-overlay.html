@@ -3,6 +3,10 @@
 </head>
 <template id="template">
   <style>
+    :host {
+        display: contents;
+    }
+
     .overlay.active::before {
       content: '';
       background-color: #212121;
@@ -103,7 +107,7 @@
 
     })
 
-    const init = (root) => {
+    const init = root => {
       const overlay = root.querySelector("#overlay")
       const overlayStep0 = overlay.querySelector("#overlay-0")
       const overlayStep1 = overlay.querySelector("#overlay-1")
