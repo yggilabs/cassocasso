@@ -12,6 +12,17 @@
       z-index: 100;
     }
 
+    .background {
+      display: contents;
+    }
+
+    .background::after {
+      content: '';
+      grid-column: full;
+      grid-row: full;
+      background-image: url("http://www.geocities.ws/grafxbin/Ttile_ANI_RAIN02.gif");
+    }
+
     .background::before {
       content: '';
       grid-column: full;
