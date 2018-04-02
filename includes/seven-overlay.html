@@ -104,7 +104,7 @@
       overlayStep1.querySelector(".button--next").addEventListener("click", () => { setStep(overlayStep2) })
       overlayStep2.querySelector(".button--back").addEventListener("click", () => { setStep(overlayStep1) })
       overlayStep2.querySelector(".button--next").addEventListener("click", () => { hideOverlay() })
-    })(getRoot())
+    })(document.currentScript.ownerDocument)
   </script>
 </template>
 <script>
