@@ -11,7 +11,7 @@
       display: contents;
     }
 
-    :host(::before) {
+    .background::before {
       content: '';
       grid-column: full;
       grid-row: full;
@@ -29,24 +29,21 @@
       }
     }
 
-    :host(.active) .icon {
-      width: 100px;
-      height: 100px;
+    .icon {
+      grid-row: content;
+      grid-column: content;
       background-color: #0CB1C4;
       animation-name: spin;
-      animation-duration: 5000ms;
+      animation-duration: 1000ms;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
     }
 
-    :host(.active) .message {
+    .message {
 
     }
-
-
-
-
   </style>
+  <div class="background"></div>
   <div class="icon"></div>
   <div class="message">loading</div>
 </template>
