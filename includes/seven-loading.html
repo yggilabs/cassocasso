@@ -22,6 +22,7 @@
       grid-row: full;
       background-size: cover;
       background-image: url("http://www.geocities.ws/grafxbin/Ttile_ANI_RAIN02.gif");
+      background-color: #212121;
     }
 
     @keyframes lightning {
@@ -47,7 +48,7 @@
       grid-column: full;
       grid-row: full;
       background-color: #212121;
-      opacity: .87;
+      opacity: .98;
       animation-name: lightning;
       animation-duration: 3000ms;
       animation-iteration-count: infinite;
@@ -88,13 +89,22 @@
       animation-timing-function: linear;
     }
 
-    .message {
+    .icon img {
+      width: 100%;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
+    .message {
+      color: white;
     }
   </style>
   <div class="background"></div>
   <div class="content">
-    <div class="icon"></div>
+    <div class="icon">
+      <img src="http://www.pngmart.com/files/6/Common-Raven-Background-PNG-310x279.png">
+    </div>
     <div class="message">loading</div>
   </div>
 </template>
