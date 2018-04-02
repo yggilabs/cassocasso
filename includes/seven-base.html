@@ -1,14 +1,11 @@
-<head>
-	<script>
-		const getTemplate = function() {
-			const template = document.currentScript.ownerDocument.querySelector("#template")
+<script>
+	const getTemplate = function() {
+		const template = document.currentScript.ownerDocument.querySelector("#template")
 
-			if (template) {
-				return template;
-			}
-
-			console.log("no template node defined in " + document.currentScript.ownerDocument.documentURI)
+		if (template) {
+			return template;
 		}
-	</script>
-	<link rel="import" href="seven-overlay.html">
-</head>
+
+		console.log("no template node defined in " + document.currentScript.ownerDocument.documentURI)
+	}
+</script>
