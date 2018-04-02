@@ -118,6 +118,7 @@
         this._shadowRoot = this.attachShadow({
           mode: 'open'
         });
+        console.log(ownerDocument)
         this._shadowRoot.appendChild(ownerDocument.querySelector("#template").content.cloneNode(true));
       }
 
@@ -132,5 +133,5 @@
       attributeChangedCallback(attrName, oldVal, newVal) {}
 
     })
-  }(document.currentScript.ownerDocument))
+  }(document.currentScript))
 </script>
