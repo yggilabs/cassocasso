@@ -28,13 +28,13 @@
       0% {
         background-color: #212121;
       }
-      85% {
+      76% {
         background-color: #212121;
       }
-      90% {
+      84% {
         background-color: #fff;
       }
-      95% {
+      92% {
         background-color: #212121;
       }
       100% {
@@ -69,10 +69,13 @@
     }
 
     .content {
-      grid-row: content;
+      grid-row-start: content;
+      grid-row-end: footer;
       grid-column: content;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .icon {
