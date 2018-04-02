@@ -51,8 +51,11 @@
 		}
 
 		.overlay .overlay__step {
-			display: none;
-			color: #fff
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			color: #fff;
+			transition: none;
 		}
 
 		.button {
@@ -68,7 +71,8 @@
 		}
 
 		.overlay.active .overlay__step.active {
-			display: block;
+			opacity: 1;
+			transition: opacity 300ms;
 		}
 
 	</style>
@@ -81,19 +85,25 @@
 		<div class="grid__content overlay__step active" id="overlay-0">
 			<p>You have a secret agenda. Hide this from the others.</p>
 			<p>Hold <i class="material-icons">fingerprint</i> to view your <span class="card__type card__type--shadow">shadow</span>'s <span class="keyword">agenda</span></p>
-			<span class="button button--next">Got it</span>
+			<span>
+				<span class="button button--next">Got it</span>
+			</span>
 		</div>
 		<div class="grid__content overlay__step" id="overlay-1">
 			<p>Your <span class="keyword">agenda</span> tells you how to manipulate <span class="card__type card__type--fate">fate</span> to score</p>
 			<p>Hold <i class="material-icons">gamble</i> to view your current <span class="card__type card__type--fate">fate</span></p>
-			<span class="button button--back">Back</span>
-			<span class="button button--next">Got it</span>
+			<span>
+				<span class="button button--back">Back</span>
+				<span class="button button--next">Got it</span>
+			</span>
 		</div>
 		<div class="grid__content overlay__step" id="overlay-2">
 			<p>This card tells you how to <span class="keyword">swap</span> your <span class="card__type card__type--fate">fate</span> with another player</p>
 			<p>Tap <i class="material-icons">less</i> when you swap with another player</p>
-			<span class="button button--back">Back</span>
-			<span class="button button--next">Let's Play!</span>
+			<span>
+				<span class="button button--back">Back</span>
+				<span class="button button--next">Let's Play!</span>
+			</span>
 		</div>
 	</div>
 	<script>
