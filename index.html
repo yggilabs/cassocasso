@@ -53,21 +53,23 @@ title: new title
       gtag('config', 'UA-116382541-1');
     </script>
   </head>
-  <body class="site grid">
-    <header class="site__header grid__header">
-      <!-- TEMPLATE HEADER BEGIN
-      {% include header.html %}
-       TEMPLATE HEADER END -->
-    </header>
-    <main class="site__router">
-      {% include noscript.html %}
-      {% include_relative includes/home.html %}
-    </main>
-    <footer class="site__footer grid__footer">
-      <!-- TEMPLATE FOOTER BEGIN
-      {% include footer.html %}
-       TEMPLATE FOOTER END -->
-    </footer>
+  <body class="site">
+    <div class="grid">
+      <header class="site__header grid__header">
+        <!-- TEMPLATE HEADER BEGIN
+        {% include header.html %}
+         TEMPLATE HEADER END -->
+      </header>
+      <main class="site__router">
+        {% include noscript.html %}
+        {% include_relative includes/home.html %}
+      </main>
+      <footer class="site__footer grid__footer">
+        <!-- TEMPLATE FOOTER BEGIN
+        {% include footer.html %}
+         TEMPLATE FOOTER END -->
+      </footer>
+    </div>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
