@@ -56,28 +56,6 @@
 			position: relative;
 		}
 
-		#card-shadow .card__background, #card-fate .card__background {
-			opacity: 0;
-			transition: transform 300ms, opacity 300ms;
-		}
-
-		#card-shadow .card__background {
-			transform: translateX(-102%);
-			left: 0;
-			right: 104%;
-		}
-
-		#card-fate .card__background {
-			transform: translateX(102%);
-			left: 104%;
-			right: 0;
-		}
-
-		#card-shadow.active .card__background, #card-fate.active .card__background {
-			opacity: 1;
-			z-index: 1;
-			transform: translateX(0);
-		}
 
 		.card__background::before {
 			content: '';
@@ -89,11 +67,28 @@
 		}
 
 		#card-shadow .card__background::before {
+			width: 204%;
+			transform: translateX(-102%);
+			z-index: 10;
 			background-color: #212121;
 		}
 
 		#card-fate .card__background::before {
+			width: 204%;
+			transform: translateX(102%);
+			z-index: 10;
 			background-color: red;
+		}
+
+		#card-shadow .card__background::before, #card-fate .card__background::before {
+			opacity: 0;
+			transition: transform 300ms, opacity 300ms;
+		}
+
+		#card-shadow.active .card__background::before, #card-fate.active .card__background::before {
+			opacity: 1;
+			z-index: 1;
+			transform: translateX(0);
 		}
 
 		.card__background::after {
