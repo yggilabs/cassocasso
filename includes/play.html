@@ -50,18 +50,22 @@
 			left: -100%;
 			background-image: url("./assets/lighten.png");
 			background-blend-mode: overlay;
+			transition: background-color 300ms, transform 300ms;
 		}
 
 		.cards__background--shadow {
 			background-color: #212121;
+			transform: translateX(102%);
 		}
 
-		.cards__background {
+		.cards__background--persona {
 			background-color: rebeccapurple;
+			transform: translateX(0);
 		}
 
 		.cards__background--fate {
 			background-color: red;
+			transform: translateX(-102%);
 		}
 
 		.card {
@@ -128,6 +132,10 @@
 			const card_fate = new StatefulNode(doc.querySelector("#card-fate"), 'active', false)
 			const card_persona = new StatefulNode(doc.querySelector("#card-persona"), 'active', true)
 
+			const background_shadow = new StatefulNode(doc.querySelector(".cards__background"), '.cards__background--shadow', false)
+			const background_fate = new StatefulNode(doc.querySelector(".cards__background"), '.cards__background--fate', false)
+			const background_persona = new StatefulNode(doc.querySelector(".cards__background"), '.cards__background--persona', true)
+
 			const button_shadow = doc.querySelector("#button-shadow")
 			const button_fate = doc.querySelector("#button-fate")
 			const button_swap = doc.querySelector("#button-swap")
@@ -136,27 +144,42 @@
 				title_shadow.active = true
 				title_fate.active = false
 				title_persona.active = false
+
 				card_shadow.active = true
 				card_fate.active = false
 				card_persona.active = false
+
+				background_shadow.active = true
+				background_fate.active = false
+				background_persona.active = false
 			}
 
 			const show_fate = () => {
 				title_shadow.active = false
 				title_fate.active = true
 				title_persona.active = false
+
 				card_shadow.active = false
 				card_fate.active = true
 				card_persona.active = false
+
+				background_shadow.active = false
+				background_fate.active = true
+				background_persona.active = false
 			}
 
 			const show_persona = () => {
 				title_shadow.active = false
 				title_fate.active = false
 				title_persona.active = true
+
 				card_shadow.active = false
 				card_fate.active = false
 				card_persona.active = true
+
+				background_shadow.active = false
+				background_fate.active = false
+				background_persona.active = true
 			}
 
 			button_shadow.addEventListener("touchstart", show_shadow)
