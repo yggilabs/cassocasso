@@ -70,15 +70,13 @@
 
 		#card-shadow .card__background::before {
 			width: 204%;
-			transform: translateX(-102%);
-			z-index: 10;
+			transform: translateX(-50%);
 			background-color: #212121;
 		}
 
 		#card-fate .card__background::before {
 			width: 204%;
-			transform: translateX(102%);
-			z-index: 10;
+			transform: translateX(50%);
 			background-color: red;
 		}
 
@@ -89,10 +87,10 @@
 
 		#card-shadow.active .card__background::before, #card-fate.active .card__background::before {
 			opacity: 1;
-			z-index: 1;
+			z-index: 10;
 			transform: translateX(0);
 		}
-		
+
 		.card__content {
 			grid-column: content;
 			grid-row: content;
