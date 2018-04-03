@@ -45,56 +45,48 @@
 		.cards__background {
 			grid-column: full;
 			grid-row: full;
-			position: relative;
-		}
-
-		.card {
-			grid-column: content;
-			grid-row: content;
-		}
-
-		.cards__background {
-			grid-column: full;
-			grid-row: full;
 			position: absolute;
 			width: 300%;
 			left: -100%;
 			background-image: url("./assets/lighten.png");
 			background-blend-mode: overlay;
-			background-color: rebeccapurple;
 		}
 
-		#card-shadow .card__background::before {
-			width: 204%;
-			transform: translateX(-50%);
+		.cards__background--shadow {
 			background-color: #212121;
 		}
 
-		#card-fate .card__background::before {
-			width: 204%;
-			transform: translateX(50%);
+		.cards__background {
+			background-color: rebeccapurple;
+		}
+
+		.cards__background--fate {
 			background-color: red;
 		}
 
-		#card-shadow .card__background::before, #card-fate .card__background::before {
-			opacity: 0;
-			transition: transform 300ms, opacity 300ms;
-		}
-
-		#card-shadow.active .card__background::before, #card-fate.active .card__background::before {
-			opacity: 1;
-			z-index: 1;
-			transform: translateX(0);
-		}
-
-		.card__content {
+		.card {
 			grid-column: content;
 			grid-row: content;
+			opacity: 0;
 			z-index: 1;
 			background-color: white;
 			border-top-left-radius: 16px;
 			border-top-right-radius: 16px;
 			padding: 32px;
+			transition: transform 300ms, opacity 300ms;
+		}
+
+		.card.active {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		#card-shadow.card {
+			transform: translateX(-102%);
+		}
+
+		#card-fate.card {
+			transform: translateX(102%);
 		}
 	</style>
 <div class="cards">
