@@ -39,9 +39,56 @@
 			grid-column: full;
 			grid-row: footer;
 		}
+
+		.cards__header {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.card__title {
+			display: none;
+		}
+
+		.card__title.active {
+			display: block;
+		}
+
+		.cards__footer {
+				display: flex;
+				justify-content: space-between;
+		}
+
+		.card {
+			display: none;
+		}
+
+		.card.active {
+			display: block;
+		}
 	</style>
-	<div class="grid__full background"></div>
-	<div class="grid__content card active"></div>
+	<header class="grid__header cards__header">
+		<h1 class="cards__title">Shadow</h1>
+		<h1 class="cards__title">Persona</h1>
+		<h1 class="cards__title">Fate</h1>
+		<div class="cars__link" id="game-invite"></div>
+	</header>
+	<div class="card" id="card-shadow">
+		<div class="grid__full background"></div>
+		<div class="grid__content">shadwo</div>
+	</div>
+	<div class="card active" id="card-persona">
+		<div class="grid__full background"></div>
+		<div class="grid__content">persona</div>
+	</div>
+	<div class="card" id="card-fate">
+		<div class="grid__full background"></div>
+		<div class="grid__content">fate</div>
+	</div>
+	<footer class="grid__footer cards__footer">
+		<span class="icon-button"><i class="material-icons">fingerprint</i></span>
+		<span class="icon-button"><i class="material-icons">expand_less</i></span>
+		<span class="icon-button"><i class="material-icons">casino</i></span>
+	</footer>
 	<seven-overlay class=""></seven-overlay>
-	<seven-loading class="active"></seven-loading>
+	<seven-loading class=""></seven-loading>
 </template>
