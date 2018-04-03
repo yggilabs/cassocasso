@@ -74,7 +74,7 @@
 	</header>
 	<div class="card" id="card-shadow">
 		<div class="grid__full background"></div>
-		<div class="grid__content">shadwo</div>
+		<div class="grid__content">shadow</div>
 	</div>
 	<div class="card active" id="card-persona">
 		<div class="grid__full background"></div>
@@ -86,23 +86,24 @@
 	</div>
 	<footer class="grid__footer cards__footer">
 		<span class="icon-button" id="button-shadow"><i class="material-icons">fingerprint</i></span>
-		<span class="icon-button"><i class="material-icons">expand_less</i></span>
+		<span class="icon-button" id="button-swap"><i class="material-icons">expand_less</i></span>
 		<span class="icon-button" id="button-fate"><i class="material-icons">casino</i></span>
 	</footer>
 	<seven-overlay class=""></seven-overlay>
 	<seven-loading class=""></seven-loading>
 	<script>
 		(function(doc) {
-			const title_shadow = new StatefulNode(doc.querySelector("#title-shadow"), false)
-			const title_fate = new StatefulNode(doc.querySelector("#title-fate"), false)
-			const title_persona = new StatefulNode(doc.querySelector("#title-persona"), true)
+			const title_shadow = new StatefulNode(doc.querySelector("#title-shadow"), 'active', false)
+			const title_fate = new StatefulNode(doc.querySelector("#title-fate"), 'active', false)
+			const title_persona = new StatefulNode(doc.querySelector("#title-persona"), 'active', true)
 
-			const card_shadow = new StatefulNode(doc.querySelector("#card-shadow"), false)
-			const card_fate = new StatefulNode(doc.querySelector("#card-fate"), false)
-			const card_persona = new StatefulNode(doc.querySelector("#card-persona"), true)
+			const card_shadow = new StatefulNode(doc.querySelector("#card-shadow"), 'active', false)
+			const card_fate = new StatefulNode(doc.querySelector("#card-fate"), 'active', false)
+			const card_persona = new StatefulNode(doc.querySelector("#card-persona"), 'active', true)
 
 			const button_shadow = doc.querySelector("#button-shadow")
 			const button_fate = doc.querySelector("#button-fate")
+			const button_swap = doc.querySelector("#button-swap")
 
 			const show_shadow = () => {
 				title_shadow.active = true
