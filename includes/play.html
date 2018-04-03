@@ -43,11 +43,12 @@
 		}
 
 		.card {
-			display: none;
+			display: contents;
+			opacity: 0;
 		}
 
 		.card.active {
-			display: contents;
+			opacity: 1;
 		}
 
 		.card__background {
@@ -87,7 +88,7 @@
 
 		#card-shadow.active .card__background::before, #card-fate.active .card__background::before {
 			opacity: 1;
-			z-index: 10;
+			z-index: 1;
 			transform: translateX(0);
 		}
 
