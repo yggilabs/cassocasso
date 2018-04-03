@@ -76,11 +76,6 @@
 			transition: transform 300ms, opacity 300ms;
 		}
 
-		.card.active {
-			opacity: 1;
-			transform: translateX(0);
-		}
-
 		#card-shadow.card {
 			transform: translateX(-102%);
 		}
@@ -88,6 +83,13 @@
 		#card-fate.card {
 			transform: translateX(102%);
 		}
+		
+		.card.active {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+
 	</style>
 <div class="cards">
 	<div class="cards__background"></div>

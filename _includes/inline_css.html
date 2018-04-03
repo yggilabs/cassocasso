@@ -16,11 +16,10 @@
     --grid-header-height: 72px;
     --grid-footer-height: 64px;
     --grid-content-width: 600px;
-    --grid-content-height: 1000px;
     --grid-row-gap: 16px;
     --grid-columm-gap: 16px;
     --grid-template-columns: [full-start] 1fr [content-start] minmax(auto, var(--grid-content-width)) [content-end] 1fr [full-end];
-    --grid-template-rows: [full-start] 1fr [header-start] minmax(var(--grid-header-height),max-content) [header-end content-start] minmax(auto,var(--grid-content-height)) [footer-start] minmax(var(--grid-footer-height),max-content) [footer-end content-end] 1fr [full-end]
+    --grid-template-rows: [full-start header-start] minmax(var(--grid-header-height),max-content) [header-end content-start] 1fr [footer-start] minmax(var(--grid-footer-height),max-content) [footer-end content-end full-end];
     font-family: 'Saira Semi Condensed', sans-serif;
     font-size: 20px;
     color: #212121;
