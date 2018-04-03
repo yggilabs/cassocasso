@@ -36,18 +36,21 @@
 
     .background::before {
       content: '';
+      z-index: 100;
       grid-column: full;
       grid-row: full;
       background-color: transparent;
       animation-name: lightning;
+      background-size: cover;
       background-image: url("./assets/rain.gif");
+      background-blend-mode: color;
       animation-duration: 3000ms;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
-      transition: opacity 100ms;
     }
 
     .content {
+      z-index: 100;
       grid-row-start: content;
       grid-row-end: footer;
       grid-column: content;
