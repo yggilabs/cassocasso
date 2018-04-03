@@ -3,16 +3,7 @@
 <template id="template">
 	<style>
 		.cards {
-				grid-row: full;
-				grid-column: full;
-				display: grid;
-				min-height: 100vh;
-				width: 300%;
-				height: 200%;
-				grid-template-columns: repeat(3, var(--grid-template-columns));
-				grid-template-rows: repeat(2, var(--grid-template-rows));
-				grid-row-gap: var(--grid-row-gap);
-				grid-column-gap: var(--grid-columm-gap);
+				display: contents;
 		}
 
 		.cards__header {
@@ -51,31 +42,26 @@
 			justify-content: space-between;
 		}
 
-		.card {
-			display: contents;
-			opacity: 0;
-		}
-
-		.card.active {
-			opacity: 1;
-		}
-
-		.card__background {
+		.cards__background {
 			grid-column: full;
 			grid-row: full;
 			position: relative;
 		}
 
+		.card {
+			grid-column: content;
+			grid-row: content;
+		}
 
-		.card__background::before {
-			content: '';
+		.cards__background {
+			grid-column: full;
+			grid-row: full;
 			position: absolute;
-			width: 100%;
-			height: 100%;
+			width: 300%;
+			left: -100%;
 			background-image: url("./assets/lighten.png");
 			background-blend-mode: overlay;
 			background-color: rebeccapurple;
-			opacity: 1;
 		}
 
 		#card-shadow .card__background::before {
@@ -111,31 +97,29 @@
 			padding: 32px;
 		}
 	</style>
-	<div class="cards">
-		<header class="cards__header">
-			<h1 class="cards__title" id="title-shadow">Shadow</h1>
-			<h1 class="cards__title active" id="title-persona">Persona</h1>
-			<h1 class="cards__title" id="title-fate">Fate</h1>
-			<div class="cards__link" id="game-invite"></div>
-		</header>
-		<div class="card active" id="card-persona">
-			<div class="card__background"></div>
-			<div class="card__content">persona</div>
-		</div>
-		<div class="card" id="card-shadow">
-			<div class="card__background"></div>
-			<div class="card__content">shadow</div>
-		</div>
-		<div class="card" id="card-fate">
-			<div class="card__background"></div>
-			<div class="card__content">fate</div>
-		</div>
-		<footer class="cards__footer">
-			<span class="icon-button" id="button-shadow"><i class="material-icons">fingerprint</i></span>
-			<span class="icon-button" id="button-swap"><i class="material-icons">expand_less</i></span>
-			<span class="icon-button" id="button-fate"><i class="material-icons">casino</i></span>
-		</footer>
+<div class="cards">
+	<div class="cards__background"></div>
+	<header class="cards__header">
+		<h1 class="cards__title" id="title-shadow">Shadow</h1>
+		<h1 class="cards__title active" id="title-persona">Persona</h1>
+		<h1 class="cards__title" id="title-fate">Fate</h1>
+		<div class="cards__link" id="game-invite"></div>
+	</header>
+	<div class="card active" id="card-persona">
+		<div class="card__content">persona</div>
 	</div>
+	<div class="card" id="card-shadow">
+		<div class="card__content">shadow</div>
+	</div>
+	<div class="card" id="card-fate">
+		<div class="card__content">fate</div>
+	</div>
+	<footer class="cards__footer">
+		<span class="icon-button" id="button-shadow"><i class="material-icons">fingerprint</i></span>
+		<span class="icon-button" id="button-swap"><i class="material-icons">expand_less</i></span>
+		<span class="icon-button" id="button-fate"><i class="material-icons">casino</i></span>
+	</footer>
+</div>
 <!--
 	<seven-overlay class=""></seven-overlay>
 	<seven-loading class="active"></seven-loading>
