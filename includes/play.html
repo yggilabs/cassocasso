@@ -67,9 +67,9 @@
 		}
 	</style>
 	<header class="grid__header cards__header">
-		<h1 class="cards__title">Shadow</h1>
-		<h1 class="cards__title">Persona</h1>
-		<h1 class="cards__title">Fate</h1>
+		<h1 class="cards__title" id="title-shadow">Shadow</h1>
+		<h1 class="cards__title active" id="title-persona">Persona</h1>
+		<h1 class="cards__title" id="title-fate">Fate</h1>
 		<div class="cars__link" id="game-invite"></div>
 	</header>
 	<div class="card" id="card-shadow">
@@ -85,10 +85,57 @@
 		<div class="grid__content">fate</div>
 	</div>
 	<footer class="grid__footer cards__footer">
-		<span class="icon-button"><i class="material-icons">fingerprint</i></span>
+		<span class="icon-button" id="button-shadow"><i class="material-icons">fingerprint</i></span>
 		<span class="icon-button"><i class="material-icons">expand_less</i></span>
-		<span class="icon-button"><i class="material-icons">casino</i></span>
+		<span class="icon-button" id="button-fate"><i class="material-icons">casino</i></span>
 	</footer>
 	<seven-overlay class=""></seven-overlay>
 	<seven-loading class=""></seven-loading>
+	<script src="./js/statefulNode.js"></script>
+	<script>
+		(function(doc) {
+			const title_shadow = new StatefulNode(doc.querySelector("#title-shadow"), false)
+			const title_fate = new StatefulNode(doc.querySelector("#title-fate"), false)
+			const title_persona = new StatefulNode(doc.querySelector("#title-persona"), true)
+
+			const card_shadow = new StatefulNode(doc.querySelector("#card-shadow"), false)
+			const card_fate = new StatefulNode(doc.querySelector("#card-fate"), false)
+			const card_persona = new StatefulNode(doc.querySelector("#card-persona"), true)
+
+			const button_shadow = doc.querySelector("#button-shadow")
+			const button_fate = doc.querySelector("#button-fate")
+
+			const show_shadow = () => {
+				title_shadow.active = true
+				title_fate.active = false
+				title_persona.active = false
+				card_shadow.active = true
+				card_fate.active = false
+				card_persona.active = true
+			}
+
+			const show_fate = () => {
+				title_shadow.active = false
+				title_fate.active = true
+				title_persona.active = false
+				card_shadow.active = false
+				card_fate.active = true
+				card_persona.active = true
+			}
+
+			const show_persona = () => {
+				title_shadow.active = false
+				title_fate.active = false
+				title_persona.active = true
+				card_shadow.active = false
+				card_fate.active = false
+				card_persona.active = true
+			}
+
+			button_shadow.addEventListener("touchstart", show_shadow)
+			button_shadow.addEventListener("touchend", show_persona)
+			button_fate.addEventListener("touchstart", show_fate)
+			button_fate.addEventListener("touchend", show_persona)
+		})(getRoot())
+	</script>
 </template>
