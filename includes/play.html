@@ -2,10 +2,6 @@
 <link rel="import" href="seven-loading.html">
 <template id="template">
 	<style>
-		h1 {
-			color: red;
-		}
-
 		.cards {
 
 		}
@@ -20,6 +16,7 @@
 
 		.cards__title {
 			grid-column: title;
+			color: white;
 			grid-row: 1;
 			opacity: 0;
 			transform: translateY(-50%);
@@ -40,6 +37,7 @@
 			display: flex;
 			grid-column: content;
 			grid-row: footer;
+			z-index: 1;
 			position: relative;
 			justify-content: space-between;
 		}
@@ -56,8 +54,6 @@
 			grid-column: full;
 			grid-row: full;
 			position: relative;
-			background-color: white;
-			background-image: url("./assets/darken.png");
 		}
 
 		.card__background::before {
@@ -68,9 +64,18 @@
 			opacity: .5;
 		}
 
+		.card__background::after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			background-image: url("./assets/darken.png");
+			opacity: .5;
+		}
+
 		.card__content {
 			grid-column: content;
 			grid-row: content;
+			z-index: 1;
 			background-color: white;
 			border-top-left-radius: 16px;
 			border-top-right-radius: 16px;
