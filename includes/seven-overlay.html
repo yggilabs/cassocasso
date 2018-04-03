@@ -3,13 +3,13 @@
   <style>
     :host {
       display: contents;
-      position: relative;
     }
 
     :host(.active) .background::before {
       content: '';
       background-color: #212121;
-      opacity: .72;
+      opacity: .98;
+      z-index: 1;
       grid-column: full;
       grid-row: full;
     }
@@ -105,10 +105,13 @@
     const init = root => {
       const overlaySteps = root.querySelectorAll(".step")
 
+      console.log(overlaySteps);
+
       for(let i = 0; i < overlaySteps.length; i++) {
         const step = overlaySteps[i]
         if (i < overlaySteps.length - 1) {
           const button_next = step.querySelector(".button--next")
+          console.log(button_next);
           if (typeof nextStep !== "undefined") button_next.addEventListener("click", () => { setStep(overlaySteps[i + 1]) })
         } else {
           const button_next = step.querySelector(".button--next")
