@@ -3,6 +3,7 @@
 <template id="template">
 	<style>
 		.cards {
+				display: none;
 
 		}
 
@@ -102,6 +103,7 @@
 			padding: 32px;
 		}
 	</style>
+<div class="cards">
 	<header class="cards__header">
 		<h1 class="cards__title" id="title-shadow">Shadow</h1>
 		<h1 class="cards__title active" id="title-persona">Persona</h1>
@@ -125,6 +127,7 @@
 		<span class="icon-button" id="button-swap"><i class="material-icons">expand_less</i></span>
 		<span class="icon-button" id="button-fate"><i class="material-icons">casino</i></span>
 	</footer>
+</div>
 	<seven-overlay class=""></seven-overlay>
 	<seven-loading class="active"></seven-loading>
 	<script>
