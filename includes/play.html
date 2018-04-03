@@ -56,6 +56,24 @@
 			position: relative;
 		}
 
+		#card-shadow .card__background, #card-fate .card__background {
+			opacity: 0;
+			transition: transform 300ms, opacity 300ms;
+		}
+
+		#card-shadow .card__background {
+			transform: translateX(-102%);
+		}
+
+		#card-fate .card__background {
+			transform: translateX(102%);
+		}
+
+		#card-shadow.active .card__background, #card-fate.active .card__background {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
 		.card__background::before {
 			content: '';
 			width: 100%;
