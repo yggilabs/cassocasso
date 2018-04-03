@@ -83,10 +83,10 @@
 		#card-fate.card {
 			transform: translateX(102%);
 		}
-		
+
 		.card.active {
 			opacity: 1;
-			transform: translateX(0);
+			transform: translateX(0) !important;
 		}
 
 
@@ -138,7 +138,7 @@
 				title_persona.active = false
 				card_shadow.active = true
 				card_fate.active = false
-				card_persona.active = true
+				card_persona.active = false
 			}
 
 			const show_fate = () => {
@@ -147,7 +147,7 @@
 				title_persona.active = false
 				card_shadow.active = false
 				card_fate.active = true
-				card_persona.active = true
+				card_persona.active = false
 			}
 
 			const show_persona = () => {
