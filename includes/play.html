@@ -55,12 +55,26 @@
 		.card__background {
 			grid-column: full;
 			grid-row: full;
+			position: relative;
 			background-color: white;
+			background-image: url("./assets/darken.png");
+		}
+
+		.card__background::before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			background-color: red;
+			opacity: .5;
 		}
 
 		.card__content {
 			grid-column: content;
 			grid-row: content;
+			background-color: white;
+			border-top-left-radius: 16px;
+			border-top-right-radius: 16px;
+			padding: 32px;
 		}
 	</style>
 	<header class="cards__header">
@@ -69,13 +83,13 @@
 		<h1 class="cards__title" id="title-fate">Fate</h1>
 		<div class="cards__link" id="game-invite"></div>
 	</header>
-	<div class="card" id="card-shadow">
-		<div class="card__background"></div>
-		<div class="card__content">shadow</div>
-	</div>
 	<div class="card active" id="card-persona">
 		<div class="card__background"></div>
 		<div class="card__content">persona</div>
+	</div>
+	<div class="card" id="card-shadow">
+		<div class="card__background"></div>
+		<div class="card__content">shadow</div>
 	</div>
 	<div class="card" id="card-fate">
 		<div class="card__background"></div>
