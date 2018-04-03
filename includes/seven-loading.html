@@ -4,12 +4,15 @@
 <template id="template">
   <style>
     :host {
-      display: none;
+      display: contents;
+      opacity: 0;
+      transition-delay: 2s;
+      transition: opacity 200ms;
     }
 
     :host(.active) {
-      display: contents;
-      z-index: 100;
+      opacity: 1;
+      transition-delay: 0;
     }
 
     .background {
